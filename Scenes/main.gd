@@ -4,7 +4,7 @@ extends Node
 var words = []
 var move := true
 var offlineList := ["revealer","uncrowns","forewarning","rehires","decarbonizer","scatts","inhibits","swith","anonymously","bestudded","creditability","stomachics","terrace","baptised","unman","mossbacked","gammoner","misspoken","cebids","hootier","okehs","drained","fungibilities","nittier","caudations","pantheistic","madreporite","erythroblast","boarhound","charry","meditate","butane","homonuclear","polyhedrosis","polemoniums","sones","omnific","gratine","pols","penultimas","highth","nonactors","tipcat","gaddis","closet","whirligig","monstrosities","enigmatic","insinuators","disabusal"]
-var offlineMode = false
+var offlineMode = true
 
 func _ready() -> void:
 	get_tree().paused = false
@@ -58,6 +58,6 @@ func _on_restart_pressed() -> void:
 
 func _on_death_visibility_changed() -> void:
 	if $Death.visible:
+		$Death/Death/CenterContainer/VBoxContainer/SCORE.text = str(roundf($Player.score))
 		process_mode = Node.PROCESS_MODE_ALWAYS
 		get_tree().paused = true
-		#$Death/Death.global_position = get_viewport().get_final_transform().origin + Vector2(576.0, 324.0) - Vector2(300, 200)

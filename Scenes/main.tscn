@@ -190,8 +190,8 @@ tile_map_data = PackedByteArray(0, 0, 36, 0, 23, 0, 0, 0, 7, 0, 7, 0, 0, 0, 36, 
 tile_set = SubResource("TileSet_jjvhh")
 script = ExtResource("3_kry3j")
 spawn_height = 500
-pattern_spacing = 4
-spawn_width = 100
+pattern_spacing = 3
+spawn_width = 50
 
 [node name="Player" parent="." unique_id=1046831634 instance=ExtResource("1_jjgbg")]
 process_mode = 1
@@ -236,6 +236,11 @@ horizontal_alignment = 1
 [node name="Restart" type="Button" parent="Death/Death/CenterContainer/VBoxContainer" unique_id=1913074637]
 layout_mode = 2
 text = "Restart?"
+
+[node name="SCORE" type="Label" parent="Death/Death/CenterContainer/VBoxContainer" unique_id=1527791724]
+layout_mode = 2
+text = "SCORE: "
+horizontal_alignment = 1
 
 [connection signal="request_completed" from="WordAPIRequester" to="." method="_on_word_api_requester_request_completed"]
 [connection signal="visibility_changed" from="Death/Death" to="." method="_on_death_visibility_changed"]

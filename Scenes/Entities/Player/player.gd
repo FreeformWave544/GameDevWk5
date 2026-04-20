@@ -6,6 +6,7 @@ const SPEED = 300.0
 @export var defaultCD := 5.0
 var cooldown := 0.2
 @onready var camera := $Camera2D
+var score := 0.0
 
 func _ready() -> void:
 	$UI/CD.max_value = defaultCD
@@ -16,8 +17,9 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor(): velocity += get_gravity() * delta
 	if get_viewport_transform().origin.y < last_viewport_pos:
 		get_parent().find_child("Death").show()
-	last_viewport_pos = get_viewport_transform().origin.y - 10.0
+	last_viewport_pos = get_viewport_transform().origin.y - 5.0
 	if Input.is_action_just_pressed("jump") and is_on_floor(): velocity.y = -jump_force
+	score = global_position.y * -1
 	var direction := Input.get_axis("left", "right")
 	if direction: velocity.x = direction * SPEED
 	else: velocity.x = move_toward(velocity.x, 0, SPEED)
