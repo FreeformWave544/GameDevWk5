@@ -11,7 +11,7 @@ func _input(event):
 	if event is InputEventKey and event.pressed:
 		var character = char(event.unicode)
 		if character.is_valid_identifier():
-			if character == $Label.text[0]: typed += character
+			if len($Label.text) > 0 and character == $Label.text[0]: typed += character
 			update_display()
 			if typed == word:
 				await get_tree().create_timer(0.1).timeout
