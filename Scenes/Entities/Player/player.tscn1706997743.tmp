@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" uid="uid://pic05q1tqap2" path="res://Scenes/Entities/Player/player.gd" id="1_kkvp2"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_kkvp2"]
-radius = 9.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kkvp2"]
 
 [sub_resource type="Gradient" id="Gradient_jjgbg"]
 offsets = PackedFloat32Array(0.20481928, 0.24096386)
@@ -28,10 +27,9 @@ fill_from = Vector2(0.5, 0.5)
 [node name="Player" type="CharacterBody2D" unique_id=1046831634]
 script = ExtResource("1_kkvp2")
 defaultCD = 3.0
-bounceMulti = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1086183856]
-shape = SubResource("CircleShape2D_kkvp2")
+shape = SubResource("RectangleShape2D_kkvp2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1137893542]
 texture = SubResource("GradientTexture2D_bo1nx")
