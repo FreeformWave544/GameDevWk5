@@ -4,12 +4,12 @@ extends Node
 var words = []
 var move := true
 var offlineList := ["revealer","uncrowns","forewarning","rehires","decarbonizer","scatts","inhibits","swith","anonymously","bestudded","creditability","stomachics","terrace","baptised","unman","mossbacked","gammoner","misspoken","cebids","hootier","okehs","drained","fungibilities","nittier","caudations","pantheistic","madreporite","erythroblast","boarhound","charry","meditate","butane","homonuclear","polyhedrosis","polemoniums","sones","omnific","gratine","pols","penultimas","highth","nonactors","tipcat","gaddis","closet","whirligig","monstrosities","enigmatic","insinuators","disabusal"]
-var offlineMode = false
+@export var offlineMode = false
 
 func _ready() -> void:
 	get_tree().paused = false
 
-func _input(event: InputEvent) -> void:
+func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("typeJump") and $Player.cooldown <= 0 and move: fetch_words()
 
 func fetch_words():
@@ -35,7 +35,7 @@ func fetch_words():
 			words = offlineList
 			spawn_words()
 
-func _on_word_api_requester_request_completed(result, response_code, headers, body):
+func _on_word_api_requester_request_completed(_result, response_code, _headers, body):
 	print("HTTP REQUESTED")
 	if response_code == 200:
 		var json = JSON.parse_string(body.get_string_from_utf8())
